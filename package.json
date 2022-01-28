@@ -1,0 +1,28 @@
+{
+  "name": "gatsby-starter-all-contents",
+  "version": "1.0.0",
+  "description": "Gatsby starter template which organizes all your contents in one place",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dillionmegida/gatsby-starter-all-contents.git"
+  },
+  "keywords": [
+    "gatsby",
+    "contents"
+  ],
+  "author": "Dillion Megida <dillionmegida@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dillionmegida/gatsby-starter-all-contents/issues"
+  },
+  "homepage": "https://github.com/dillionmegida/gatsby-starter-all-contents#readme",
+  "dependencies": {
+    "gatsby": "^4.6.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

@@ -4,7 +4,9 @@
   "description": "Gatsby starter template which organizes all your contents in one place",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "gatsby-plugin-react-helmet": "^5.6.0",
     "gatsby-plugin-sass": "^5.6.0",
     "gatsby-source-filesystem": "^4.6.0",
+    "gatsby-transformer-remark": "^5.6.0",
     "gatsby-transformer-yaml": "^4.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

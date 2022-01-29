@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `Enter site url`,
+    siteUrl: `https://dillionmegida.com`,
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -15,16 +15,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blog`,
-        path: `${__dirname}/data/blog/`,
+        name: `contents`,
+        path: `${__dirname}/data/`,
       },
     },
+
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `contents`,
-        path: `${__dirname}/data/contents/`,
-      },
+      resolve: `gatsby-transformer-remark`,
     },
   ],
 }

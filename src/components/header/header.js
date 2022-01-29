@@ -7,7 +7,9 @@ export default function Header() {
   return (
     <header className="header">
       <div className="container">
-        <span className="header__site-name">Blog</span>
+        <Link to="/" className="header__site-name">
+          Blog
+        </Link>
         <nav className="header__links">
           <ul>
             <li>

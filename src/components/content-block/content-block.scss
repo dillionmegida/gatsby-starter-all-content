@@ -1,0 +1,21 @@
+.block {
+    h2 {
+        margin: 0 0 10px;
+        &,
+        a {
+          color: var(--midMainColor1);
+        }
+    
+        a {
+          text-decoration: underline;
+        }
+      }
+      .content-block__item {
+        a {
+          color: var(--mainColor);
+          text-decoration: underline;
+          margin-bottom: 10px;
+          display: block;
+        }
+      }
+}

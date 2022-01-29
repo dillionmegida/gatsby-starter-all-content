@@ -1,0 +1,20 @@
+.header {
+  .container {
+    border-bottom: 1px solid var(--grey300);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__site-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+
+  &__links {
+    a {
+      color: var(--orange900);
+      text-decoration: underline;
+    }
+  }
+}

@@ -22,14 +22,18 @@ export default function SearchInput({
           </button>
         ))}
       </div>
-      <div className="input-container">
+      <form className="input-container">
+        <label htmlFor="query" hidden>
+          Search query
+        </label>
         <input
           type="text"
+          id="query"
           placeholder="Search my contents"
           onChange={(e) => onQuery(e.target.value)}
           defaultValue={defaultValue}
         />
-      </div>
+      </form>
     </div>
   )
 }

@@ -13,7 +13,7 @@ export default function Home({ data }) {
     <Layout>
       <Seo title="All posts" />
       <h1>Blog</h1>
-      <ul className="posts">
+      <div className="posts">
         {data.posts.edges.map(({ node }) => {
           const {
             frontmatter: { title, date, description },
@@ -23,7 +23,7 @@ export default function Home({ data }) {
           } = node
 
           return (
-            <li className="post-card" key={id}>
+            <article className="post-card" key={id}>
               <Link to={slug}>
                 <span className="post-card__title">{title}</span>
                 <span className="post-card__date">
@@ -36,10 +36,10 @@ export default function Home({ data }) {
                     : description}
                 </p>
               </Link>
-            </li>
+            </article>
           )
         })}
-      </ul>
+      </div>
     </Layout>
   )
 }

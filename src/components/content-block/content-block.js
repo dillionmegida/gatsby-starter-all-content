@@ -8,7 +8,7 @@ export default function ContentBlock({ heading: { title, link }, items }) {
   const isExternalLink = link && link.startsWith("http")
 
   return (
-    <div className="block">
+    <article className="block">
       <h2>
         {link ? (
           <>
@@ -22,13 +22,14 @@ export default function ContentBlock({ heading: { title, link }, items }) {
           title
         )}
       </h2>
-      <div className="content-block__items">
+      <ul className="content-block__items">
         {items.map((i) => (
-          <div key={i.title} className="content-block__item">
+          <li key={i.title} className="content-block__item">
             <AnchorLink link={i.link}>{i.title}</AnchorLink>
-          </div>
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </article>
   )
 }
+

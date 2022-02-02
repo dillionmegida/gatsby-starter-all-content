@@ -18,7 +18,7 @@ export default function Post({ data }) {
   return (
     <Layout>
       <Seo title={title} />
-      <div className="post">
+      <article className="post">
         <h1 className="post__title">{title}</h1>
         <span className="post__date">
           {date} - {timeToRead} {pluralize(timeToRead, "min")} read
@@ -26,7 +26,7 @@ export default function Post({ data }) {
         <div className="post__content">
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </div>
-      </div>
+      </article>
     </Layout>
   )
 }

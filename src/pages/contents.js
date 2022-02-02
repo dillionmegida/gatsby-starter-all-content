@@ -9,6 +9,7 @@ import { changeWithoutReloading } from "../utils/url"
 import SearchInput from "../components/search-input/search-input"
 
 import "./contents.scss"
+import Seo from "../components/seo"
 
 const COMMON_TAGS = ["all", "gatsby", "node", "javascript", "react", "writing"]
 
@@ -99,6 +100,7 @@ export default function Contents({ data, location: { search } }) {
 
   return (
     <Layout>
+      <Seo title="All my contents" />
       <h1>Contents</h1>
       <SearchInput
         commonTags={COMMON_TAGS}

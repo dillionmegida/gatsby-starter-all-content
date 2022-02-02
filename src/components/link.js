@@ -12,11 +12,3 @@ export function NewTabLink({ link, children, className }) {
     </a>
   )
 }
-
-export function AnchorLink({ link, children, className }) {
-  return (
-    <a className={className} href={link}>
-      {children}
-    </a>
-  )
-}

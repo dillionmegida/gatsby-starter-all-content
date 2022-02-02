@@ -48,6 +48,7 @@ export default function Contents({ data, location: { search } }) {
     }
   }, [])
 
+  // useCallback to avoid re-rendering the function if there isn't a need to
   const onQuery = useCallback(
     (val, tag = activeTag) => {
       if (val === activeQuery && tag === activeTag) return
@@ -57,6 +58,7 @@ export default function Contents({ data, location: { search } }) {
 
       const isActiveTagAll = tag === "all" || !COMMON_TAGS.includes(tag)
 
+      // initialize array for matched contents
       const matchedContents = []
 
       allContents.forEach((c, i) => {
@@ -64,11 +66,14 @@ export default function Contents({ data, location: { search } }) {
         c.edges.forEach(({ node }, j) => {
           matchedContents[i].edges[j] = { node: { ...node, content: [] } }
 
+          // map through the content array of the platform to match the filter terms
           node.content.forEach((item) => {
             const tagStr = item.tags?.join("")
 
             if (
+              // if the title or tags match the query
               (valReg.test(item.title) || (item.tags && valReg.test(tagStr))) &&
+              // and if the title or tags match the tag
               (isActiveTagAll
                 ? true
                 : tagReg.test(item.title) || tagReg.test(tagStr))
@@ -81,6 +86,7 @@ export default function Contents({ data, location: { search } }) {
 
       setContents(matchedContents)
 
+      // initialize array for matched articles created on this website
       const matchedArticles = allArticlesOnMyWebite.filter(({ node }) => {
         const {
           frontmatter: { title, tags },
@@ -88,7 +94,9 @@ export default function Contents({ data, location: { search } }) {
         const tagsStr = tags?.join("")
 
         return (
+          // if the title or tags match the query
           (valReg.test(title) || valReg.test(tagsStr)) &&
+          // and if the title or tags match the tag
           (isActiveTagAll ? true : tagReg.test(title) || tagReg.test(tagsStr))
         )
       })
@@ -160,6 +168,7 @@ export default function Contents({ data, location: { search } }) {
 
 export const query = graphql`
   query ContentsQuery {
+    # queries for all contents in /data/contents and this website's articles
     logrocket: allLogrocketYaml {
       edges {
         node {

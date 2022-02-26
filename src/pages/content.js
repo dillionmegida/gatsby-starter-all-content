@@ -8,20 +8,20 @@ import queryString from "query-string"
 import { changeWithoutReloading } from "../utils/url"
 import SearchInput from "../components/search-input/search-input"
 
-import "./contents.scss"
+import "./content.scss"
 import Seo from "../components/seo"
 
 const COMMON_TAGS = ["all", "gatsby", "node", "javascript", "react", "writing"]
 
-export default function Contents({ data, location: { search } }) {
+export default function Content({ data, location: { search } }) {
   const isWiderThan800 = useMedia({ minWidth: 1000 })
   const isWiderThan600 = useMedia({ minWidth: 600 })
 
   const { logrocket, stw, fcc } = data
-  const allContents = [logrocket, stw, fcc]
+  const allContent = [logrocket, stw, fcc]
   const allArticlesOnMyWebite = data.allArticlesOnMyWebite.edges
 
-  const [contents, setContents] = useState(allContents)
+  const [content, setContent] = useState(allContent)
   const [articles, setArticles] = useState(allArticlesOnMyWebite)
 
   const [activeQuery, setActiveQuery] = useState("")
@@ -58,13 +58,13 @@ export default function Contents({ data, location: { search } }) {
 
       const isActiveTagAll = tag === "all" || !COMMON_TAGS.includes(tag)
 
-      // initialize array for matched contents
-      const matchedContents = []
+      // initialize array for matched content
+      const matchedContent = []
 
-      allContents.forEach((c, i) => {
-        matchedContents[i] = { edges: [] }
+      allContent.forEach((c, i) => {
+        matchedContent[i] = { edges: [] }
         c.edges.forEach(({ node }, j) => {
-          matchedContents[i].edges[j] = { node: { ...node, content: [] } }
+          matchedContent[i].edges[j] = { node: { ...node, content: [] } }
 
           // map through the content array of the platform to match the filter terms
           node.content.forEach((item) => {
@@ -78,13 +78,13 @@ export default function Contents({ data, location: { search } }) {
                 ? true
                 : tagReg.test(item.title) || tagReg.test(tagStr))
             ) {
-              matchedContents[i].edges[j].node.content.push(item)
+              matchedContent[i].edges[j].node.content.push(item)
             }
           })
         })
       })
 
-      setContents(matchedContents)
+      setContent(matchedContent)
 
       // initialize array for matched articles created on this website
       const matchedArticles = allArticlesOnMyWebite.filter(({ node }) => {
@@ -108,8 +108,8 @@ export default function Contents({ data, location: { search } }) {
 
   return (
     <Layout>
-      <Seo title="All my contents" />
-      <h1>Contents</h1>
+      <Seo title="All my content" />
+      <h1>Content</h1>
       <SearchInput
         commonTags={COMMON_TAGS}
         activeTag={activeTag}
@@ -125,13 +125,13 @@ export default function Contents({ data, location: { search } }) {
         }}
         defaultValue={activeQuery}
       />
-      <div className="contents-container">
+      <div className="content-container">
         <Masonry
           breakpointCols={isWiderThan800 ? 3 : isWiderThan600 ? 2 : 1}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
-          {contents.map((c) =>
+          {content.map((c) =>
             c.edges.map(({ node }) => {
               if (node.content.length < 1) return null
 
@@ -167,8 +167,8 @@ export default function Contents({ data, location: { search } }) {
 }
 
 export const query = graphql`
-  query ContentsQuery {
-    # queries for all contents in /data/contents and this website's articles
+  query ContentQuery {
+    # queries for all content in /data/content and this website's articles
     logrocket: allLogrocketYaml {
       edges {
         node {

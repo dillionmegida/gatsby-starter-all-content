@@ -1,35 +1,28 @@
 import { Link } from "gatsby"
 import React from "react"
-import { AnchorLink, NewTabLink } from "../../components/Link"
+import { NewTabLink } from "../../components/Link"
 
 import "./content-block.scss"
 
-export default function ContentBlock({ heading: { title, link }, items }) {
+function LinkComp({ link, title }) {
   const isExternalLink = link && link.startsWith("http")
 
+  if (isExternalLink) return <NewTabLink link={link}>{title}</NewTabLink>
+
+  return <Link to={link}>{title}</Link>
+}
+
+export default function ContentBlock({ heading: { title, link }, items }) {
   return (
     <article className="block">
-      <h2>
-        {link ? (
-          <>
-            {isExternalLink ? (
-              <NewTabLink link={link}>{title}</NewTabLink>
-            ) : (
-              <Link to={link}>{title}</Link>
-            )}
-          </>
-        ) : (
-          title
-        )}
-      </h2>
+      <h2>{link ? <LinkComp title={title} link={link} /> : title}</h2>
       <ul className="content-block__items">
         {items.map((i) => (
           <li key={i.title} className="content-block__item">
-            <AnchorLink link={i.link}>{i.title}</AnchorLink>
+            <LinkComp link={i.link} title={i.title} />
           </li>
         ))}
       </ul>
     </article>
   )
 }
-

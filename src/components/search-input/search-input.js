@@ -29,7 +29,7 @@ export default function SearchInput({
         <input
           type="text"
           id="query"
-          placeholder="Search my contents"
+          placeholder="Search my content"
           onChange={(e) => onQuery(e.target.value)}
           defaultValue={defaultValue}
         />

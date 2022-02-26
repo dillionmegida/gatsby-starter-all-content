@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-all-contents",
+  "name": "gatsby-starter-all-content",
   "version": "1.0.0",
-  "description": "Gatsby starter template which organizes all your contents in one place",
+  "description": "Gatsby starter template which organizes all your content in one place",
   "main": "index.js",
   "scripts": {
     "develop": "gatsby develop",
@@ -10,18 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/dillionmegida/gatsby-starter-all-contents.git"
+    "url": "git+ssh://git@github.com/dillionmegida/gatsby-starter-all-content.git"
   },
   "keywords": [
     "gatsby",
-    "contents"
+    "content"
   ],
   "author": "Dillion Megida <dillionmegida@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dillionmegida/gatsby-starter-all-contents/issues"
+    "url": "https://github.com/dillionmegida/gatsby-starter-all-content/issues"
   },
-  "homepage": "https://github.com/dillionmegida/gatsby-starter-all-contents#readme",
+  "homepage": "https://github.com/dillionmegida/gatsby-starter-all-content#readme",
   "dependencies": {
     "gatsby": "^4.6.0",
     "gatsby-plugin-react-helmet": "^5.6.0",

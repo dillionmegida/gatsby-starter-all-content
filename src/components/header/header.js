@@ -13,7 +13,7 @@ export default function Header() {
         <nav className="header__links">
           <ul>
             <li>
-              <Link to="/contents">Contents</Link>
+              <Link to="/content">Content</Link>
             </li>
           </ul>
         </nav>

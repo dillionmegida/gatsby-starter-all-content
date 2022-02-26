@@ -1,17 +1,17 @@
-# gatsby-starter-all-contents
+# gatsby-starter-all-content
 
-This is a template for the [contents page of my website](https://dillionmegida.com/contents):
+This is a template for the [content page of my website](https://dillionmegida.com/content):
 
-![Dillion contents page](./images/dillion-contents-page.png)
+![Dillion content page](./images/dillion-content-page.png)
 
-Anyone interested in having something--where all contents you've written on different platforms can be stored in one place--you're free to use this template.
+Anyone interested in having something--where all content you've written on different platforms can be stored in one place--you're free to use this template.
 
 ## Installation
 
 You can use this starter with these commands:
 
 ```bash
-gatsby new YOUR-WEBSITE https://github.com/dillionmegida/gatsby-starter-all-contents
+gatsby new YOUR-WEBSITE https://github.com/dillionmegida/gatsby-starter-all-content
 
 # goto your website directory
 cd YOUR-WEBSITE
@@ -20,21 +20,21 @@ cd YOUR-WEBSITE
 gatsby develop
 ```
 
-On `localhost:8000`, you'll find two pages: the blog and contents pages. The contents page looks similar to this:
+On `localhost:8000`, you'll find two pages: the blog and content pages. The content page looks similar to this:
 
-![Contents page template](./images/contents-page-template.png)
+![Content page template](./images/content-page-template.png)
 
-These are all demo contents.
+These are all demo content.
 
-The contents page is a compilation of all your content, including the blog posts on your website.
+The content page is a compilation of all your content, including the blog posts on your website.
 
 Read the following section to learn how to add your own content.
 
 ## Usage
 
-All contents live in the two directories: `data/blog` and `data/contents`. The former is for blog posts on your website, and the latter is for all contents you've written on different platforms.
+All content live in the two directories: `data/blog` and `data/content`. The former is for blog posts on your website, and the latter is for all content you've written on different platforms.
 
-For the latter, files are named by their platform with the `.yml` extension. For example, hashnode's contents are stored in `data/contents/hashnode.yml`. The structure of the file is as follows:
+For the latter, files are named by their platform with the `.yml` extension. For example, hashnode's content are stored in `data/content/hashnode.yml`. The structure of the file is as follows:
 
 ```yaml
 - platform: Hashnode
@@ -51,7 +51,7 @@ For the latter, files are named by their platform with the `.yml` extension. For
     - ...and so on
 ```
 
-You can add as many contents in the `content` array.
+You can add as many content in the `content` array.
 
 ### Adding new platforms
 
@@ -59,7 +59,7 @@ The first step is adding the file as described above to add a new platform.
 
 Then you'd need to do a few more things:
 
-In `src/pages/contents`, create a new graphql query in the exported query object below the file. Say your platform is Hashnode, you'd need to add the following query:
+In `src/pages/content`, create a new graphql query in the exported query object below the file. Say your platform is Hashnode, you'd need to add the following query:
 
 ```graphql
 hashnode: allHashnodeYaml {
@@ -78,18 +78,26 @@ hashnode: allHashnodeYaml {
     }
 ```
 
-Next, add this platform to the `allContents` array in the `Contents` component in the same file:
+Next, add this platform to the `allContent` array in the `Content` component in the same file:
 
 ```js
 //
-const {...previousContents, hashnode} = data
-const allContents = [...previousContents, hashnode]
+const {
+  // previous content here
+  // ..,
+  hashnode,
+} = data
+const allContent = [
+  // add previous content to the array
+  // ..,
+  hashnode,
+]
 //
 ```
 
-And that's all. On your contents page, you can see the contents of your new platform.
+And that's all. On your content page, you can see the content of your new platform.
 
-Also, note that the order of the platforms in the `allContents` array determines how they are displayed on the contents grid.
+Also, note that the order of the platforms in the `allContent` array determines how they are displayed on the content grid.
 
 ## Helpful Notes
 
